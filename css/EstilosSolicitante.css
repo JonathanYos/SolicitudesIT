@@ -1,0 +1,192 @@
+﻿* {
+    margin:0 0 0 0;
+    padding:0;
+    font-family:"proxima-nova",sans-serif;
+    font-size:11px;
+}
+body {
+background:
+ linear-gradient(
+      rgba(51, 51, 51,.10), 
+      rgba(51, 51, 51,.05)
+    ),
+    
+url(../imagenes/fondol.jpg);
+background-size:cover;
+background-attachment:fixed;
+}
+.tamano {
+width:0px;
+}
+.tablaregistro {
+margin:10px auto;
+}
+
+.tablaregistro tr td a {
+color:#333333;
+}
+.tablahardware tr td {
+text-align:left;
+width:90px;
+}
+.tablasol {
+padding: 10% 0;
+font-size:15px;
+}
+.titulo {
+color:#fff;
+background:#263940;
+margin-top:-15px;
+margin-left:7px;
+width:120px;
+border-radius:50px;
+padding:5px 10px;
+text-align:center;
+}
+.borde {
+border:3px solid #263940;
+border-radius:5px;
+width:500px;
+margin:0 auto;
+background:#86C6DE;
+color:#263940;
+font-weight:bold;
+}
+.divtareas {
+position:relative;
+top:-20px;
+margin-left:50px;
+}
+.ddltipo {
+width:100px;
+height:24px;
+margin-bottom:3px;
+}
+.hardware {
+float:left;
+}
+.txtinventario {
+width:50px;
+height:16px;
+margin-bottom:3px;
+}
+.desc, .serv {
+width:100%;
+}
+
+
+.contenedorhis {
+    width:auto;
+    margin:10px auto;
+    min-width:700px;
+    height:250px;
+    overflow-y:scroll;
+    border-radius:3px;
+    border:1px solid #333333;
+    padding:5px;
+}
+.contenedorhis table{
+    width:100%;
+}
+    
+.estrella {
+margin:10px 5px;
+}
+.mensaje {
+    top:100px;
+    text-align:center;
+ width: 400px;
+  position: absolute;
+display:table;
+left:35%;
+background:#86C6DE;
+color:#333333;
+border-radius:3px;
+border:1px solid #333333;
+color:#fff;
+}
+    .mensaje table {
+    width:100%;
+    }
+    .mensaje .lbltitmen {
+position:relative;
+background:#333333;
+border-radius:50px;
+padding:5px;
+}
+.pntareas {
+width:500px;
+display:inline-block;
+margin-left:10px;
+margin-top:-10px;
+}
+.centrar {
+text-align:center;
+}
+.contenedor {
+position:absolute;
+top:70px;
+left:225px;
+margin-bottom:200px;
+}
+.contenedor td{
+    text-align:center;
+    padding:0;
+
+}
+.subcontenedor {
+    margin-left:10px;
+    display:inline-table;
+    margin-top:20px;
+    
+}
+.titulo2 {
+background:#263940;
+color:#fff;
+border-radius:50px;
+padding:5px 10px;
+margin:-25px 5px;
+margin-bottom:1px;
+text-align:center;
+width:200px;
+}
+.alinear {
+display:inline;
+}
+.cal {
+display:inline-flex;
+}
+.maximo {
+max-width:400px;
+}
+.tit {
+font-size:25px;
+font-family: 'Pacifico', cursive;
+color:#263940;
+}
+h1 {
+text-align:center;
+margin-top:-40px;
+color:#263940;
+ text-shadow: 1.5px  0px 0px #fff;
+               /*0px  1px 0px #fff,
+              -1px  0px 0px #fff,
+               0px -1px 0px #fff;*/
+
+}
+.img {
+width:200px;
+}
+.estrellasimg {
+width:25px;
+display:inline-block;
+}
+
+.busqueda {
+text-align:center;
+margin-top:15px;
+}
+.desc {
+font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+    font-size: 11px;
+}
