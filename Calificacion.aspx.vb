@@ -70,7 +70,7 @@ Partial Class Calificacion
                             "<p>El ticket <b>#" + lblticket.Text + "</b> ha sido calificado</p>"
                 asunto = "Solicitud Calificada"
 
-                ' enviar(correo, mensaje, asunto)
+                enviar(correo, mensaje, asunto)
                 llenarhistorial()
                 VerificarRegistrosHistorial()
                 btnOk.Text = "Ok"

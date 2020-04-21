@@ -164,7 +164,7 @@ Partial Class Creacion
             End If
 
             sql = "INSERT INTO dbo.SOLICITUD( NoSolicitud, FechaCreacion, Solicitante, FechaSolicitud, Tipo, Descripcion, UsuarioIT, Estado, Finalizacion, Hrs, Minutos, Sitio, Solucion, Registro, Activo, Prioridad, Inventario, Meta, NoPresencial, Categoria, FechaEstado, Calificacion, NotasCalificacion, ParaUsuario) VALUES('" + ticket + "',GETDATE()," + Soli + ",GETDATE()," + tipo + ",'" + descripcion + "'," + asignado + ",'SOLI', NULL, NULL, NULL, NULL, NULL,'" + U + "',1," + prio + ",0,NULL,0,'" + categoria + "', GETDATE(), NULL, NULL," + parausuario + ")"
-            
+
 
             cn.ejecutarSQL(sql)
             Dim mensaje As String = "<h1>!Gracias por Utilizar SolicitudesIT¡</h1>" +
@@ -179,14 +179,14 @@ Partial Class Creacion
             Soli = Soli.Replace("'", "")
             sql = "SELECT Email FROM dbo.FwEmployee WHERE EmployeeId='" + Soli + "'"
             solicitante = cn.obtienePalabraFam(sql, "Email")
-            Response.Write(Soli)
+            Response.Write(solicitante)
 
 
             'sql = "SELECT CASE WHEN EstadoAuxiliar=1 THEN CASE WHEN Auxiliar IS NULL THEN Responsable ELSE Auxiliar END  ELSE Responsable END Usuario FROM dbo.CdTipoSol WHERE Activo=1 AND IdTipo='" + titulo + "'"
             'asignado = cn.obtienePalabra(sql, "Usuario")
             sql = "SELECT Email FROM dbo.FwEmployee WHERE EmployeeId=" + asignado + ""
             correoasignado = cn.obtienePalabraFam(sql, "Email")
-            'enviar(solicitante, asunto, mensaje)
+            enviar(solicitante, asunto, mensaje)
             enviar(correoasignado, asunto2, mensaje2)
             btnOk.Text = "Aceptar"
             Mostrarmsj("Ticket #" + ticket + " Ingresado Exitosamente")

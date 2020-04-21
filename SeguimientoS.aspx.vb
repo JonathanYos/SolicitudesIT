@@ -343,7 +343,7 @@ Partial Class SeguimientoS
             Asunto = "Delegacion de Solicitud"
             Mensaje = "<h1>Se le ha delegado una Solicitud</h1><br/>" +
                 "<p>El usuario " + U + " le ha delegado la solicitud con numero de ticket #" + lblticket.Text + " para que pueda darle seguimiento</p>"
-            ' enviar(Solicitante, Mensaje, Asunto)
+            enviar(Solicitante, Mensaje, Asunto)
         End If
         If (ddlestado.SelectedValue = "FINA") Then
             Dim solic = lblsolicitante.Text
@@ -352,7 +352,7 @@ Partial Class SeguimientoS
             Dim mensaje = "<h1>!Su solicitud ha sido completada¡</h1><br/>" +
                         "<p>Su ticket #" + lblticket.Text + " ha sido completado por favor califique nuestro servicio</p>"
             Dim Asunto As String = "Ticket #" + lblticket.Text + " -Resuelto-"
-            '  enviar(solicitante, mensaje, Asunto)
+            enviar(solicitante, mensaje, Asunto)
         End If
         If (ddlestado.SelectedValue = "DUPL") Then
             Dim solic = lblsolicitante.Text
@@ -361,7 +361,7 @@ Partial Class SeguimientoS
             Dim mensaje = "<h1>!Su solicitud fue marcada como duplicado¡</h1><br/>" +
                         "<p>Alguien mas reporto esta solicitud y se esta dando seguimiento, para mas informacion consulte con " + U + "</p>"
             Dim Asunto As String = "Ticket #" + lblticket.Text + " -Duplicado-"
-            ' enviar(solicitante, mensaje, Asunto)
+            enviar(solicitante, mensaje, Asunto)
         End If
         If (ddlestado.SelectedValue = "CERR") Then
             Dim solic = lblsolicitante.Text
@@ -370,7 +370,7 @@ Partial Class SeguimientoS
             Dim mensaje = "<h1>!Su solicitud fue marcada como Cerreda¡</h1><br/>" +
                         "<p>Se ha marcado su solicitud como cerrada para mas información consultar con " + U + ".</p>"
             Dim Asunto As String = "Ticket #" + lblticket.Text + " -Cerrado-"
-            ' enviar(solicitante, mensaje, Asunto)
+            enviar(solicitante, mensaje, Asunto)
         End If
         sql = "INSERT INTO dbo.SOLICITUD(NoSolicitud,FechaCreacion,Solicitante,FechaSolicitud,Tipo,Descripcion,UsuarioIT,Estado,Finalizacion,Hrs,Minutos,Sitio,Solucion,Registro,Activo,Prioridad,Inventario,Meta,NoPresencial,Categoria,FechaEstado,Calificacion,NotasCalificacion,ParaUsuario) SELECT NoSolicitud,GETDATE() FechaCreacion,Solicitante,FechaSolicitud,Tipo,Descripcion,'" + asignado + "' UsuarioIT," + estado + " Estado,Finalizacion,Hrs ,Minutos,'" + sitio + "' Sitio,'" + solucion + "' Solucion,'" + U + "' Registro,Activo,Prioridad, Inventario,'" + meta + "' Meta,NoPresencial, Categoria," + fecha + " FechaEstado,Calificacion,NotasCalificacion,ParaUsuario FROM dbo.SOLICITUD WHERE Activo = 1 And NoSolicitud = '" + lblticket.Text + "'"
         cn.ejecutarSQL(sql)
