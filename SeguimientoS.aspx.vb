@@ -104,7 +104,10 @@ Partial Class SeguimientoS
         lblestado.Text = "Estado: " + cn.obtienePalabra(sql, "Estado")
         lblfecha.Text = rrow(9).ToString()
         lblhora.Text = rrow(10).ToString()
-
+        If (rrow(8).ToString() = "SOLI") Then
+        Else
+            ddlestado.SelectedValue = rrow(8).ToString()
+        End If
         txbdescripcion.Text = HttpUtility.HtmlDecode(rrow(3).ToString.Replace("&nbsp;", ""))
         ddlasignado.SelectedValue = HttpUtility.HtmlDecode(rrow(5).ToString.Replace("&nbsp;", ""))
         ddlprioridad.Enabled = True

@@ -6,6 +6,29 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="Server">
     <style>
+        .descripcion31 {
+            width: 300px;
+            height: 70px;
+            max-width: 300px;
+            border-radius: 3px;
+        }
+
+        .txtfila21 {
+            width: 200px;
+            border-radius: 3px;
+            height: 26px;
+            float: left;
+        }
+
+        .titulosol1 {
+            width: 300px;
+            height: 20px;
+        }
+
+        .w95 {
+            width: 95%;
+        }
+
         .centrar4 {
             margin: 0 auto;
         }
@@ -22,11 +45,23 @@
             margin-top: 10px;
             border-radius: 3px;
         }
-        .qborde {
-        border:none;
+
+        .desc3 {
+            height: 70px;
+            width: 100%;
         }
+
+        .qborde {
+            border: none;
+        }
+
         .button20 {
-        margin-bottom:50px;
+            margin-bottom: 50px;
+        }
+
+        .chekc {
+            float: left;
+            margin-top: 3px;
         }
     </style>
     <div class="top23 button20">
@@ -75,13 +110,22 @@
                     <i class="icon-send tamano15 izquierda5"></i>
                     <asp:Label ID="lblparausuario" CssClass="tamano15" runat="server"></asp:Label>
                 </div>
-                <div class="formContHeader">
-                    <p class="direccion"><b>Tipo de Servicio</b></p>
-                    <asp:TextBox ID="txttitulo" CssClass="titulosol" runat="server"></asp:TextBox>
-                    <div class="solicitud2">
-                        <i class="icon-plus-circle"></i>Seleccionar Servicio
-                    </div>
-                    <asp:Button ID="btnguardarser" CssClass="btn" runat="server" Text="Guardar Servicio" />
+                <div class="formContHeader" style="height: 40px;">
+                    <table>
+                        <tr>
+                            <td>
+                                <p class="direccion"><b>Tipo de Servicio</b></p>
+                                <asp:TextBox ID="txttitulo" CssClass="titulosol1" runat="server"></asp:TextBox></td>
+                            <td>
+                                <div class="solicitud2">
+                                    <i class="icon-plus-circle"></i>Seleccionar Servicio
+                                </div>
+                                <asp:Button ID="btnguardarser" CssClass="btn" runat="server" Text="Guardar Servicio" />
+                            </td>
+                        </tr>
+                    </table>
+
+
                     <br />
                     <p id="mensajeguardado"></p>
                 </div>
@@ -100,26 +144,29 @@
                     <asp:HiddenField ID="hdfvalor2" runat="server" />
                     <table style="width: 100%;">
                         <tr>
-                            <td>
+                            <td style="width: 110px;">
                                 <i class="icon-asterisk" style="color: #C70000;"></i>
                                 <asp:Label ID="lblasignado" CssClass="lblfila2" runat="server"></asp:Label>
                             </td>
-                            <td>
+                            <td style="width: 110px;">
                                 <asp:Label ID="lblestadosol" CssClass="lblfila2" runat="server"></asp:Label>
                             </td>
-                            <td>
+                            <td style="width: 200px;">
                                 <asp:Label ID="lblprioridad" CssClass="lblfila2" runat="server"></asp:Label>
+                            </td>
+                            <td rowspan="2">
+                                <asp:Button ID="btnguardarsol" CssClass="btn derecha15" runat="server" />
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <asp:DropDownList ID="ddlasignado" CssClass="txtfila2" runat="server"></asp:DropDownList>
+                                <asp:DropDownList ID="ddlasignado" CssClass="txtfila2 w95" runat="server"></asp:DropDownList>
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlestado" CssClass="txtfila2" runat="server"></asp:DropDownList>
+                                <asp:DropDownList ID="ddlestado" CssClass="txtfila2 w95" runat="server"></asp:DropDownList>
                             </td>
                             <td>
-                                <asp:DropDownList ID="ddlprioridad" CssClass="txtfila2" runat="server"></asp:DropDownList>
+                                <asp:DropDownList ID="ddlprioridad" CssClass="txtfila2 w95" runat="server"></asp:DropDownList>
                             </td>
                         </tr>
                     </table>
@@ -131,33 +178,30 @@
                                 <i class="icon-asterisk" style="color: #C70000;"></i>
                                 <asp:Label ID="lblsitio" CssClass="lblfila2" runat="server"></asp:Label>
                             </td>
+                            <td rowspan="4">
+
+                                <p class="direccion" style="float: left;"><b>Solucion</b></p>
+                                <asp:TextBox ID="txtsolucion" CssClass="descripcion31" runat="server" TextMode="MultiLine"></asp:TextBox>
+
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <asp:DropDownList ID="ddlsitio" CssClass="txtfila21" runat="server"></asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
                             <td>
                                 <asp:Label ID="lblmeta" CssClass="lblfila2" runat="server"></asp:Label>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <asp:DropDownList ID="ddlsitio" CssClass="txtfila2" runat="server"></asp:DropDownList>
-                            </td>
-                            <td>
-                                <asp:TextBox ID="txbmeta" CssClass="txtfila2" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txbmeta" CssClass="txtfila21" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                     </table>
-                </div>
-                <div class="formContBody">
-                    <table class="todotamano">
-                        <tr>
-                            <td>
-                                <p class="direccion" style="float: left;"><b>Solucion</b></p>
-                                <asp:TextBox ID="txtsolucion" CssClass="descripcion2" runat="server" TextMode="MultiLine"></asp:TextBox>
-
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="formbotones">
-                    <asp:Button ID="btnguardarsol" CssClass="btn derecha15" runat="server" />
                 </div>
 
             </asp:Panel>
@@ -167,45 +211,56 @@
                     <i class="icon-check-square-o color direccion"></i>
                     <asp:Label ID="lbltarea" runat="server" CssClass="direccion"></asp:Label>
                 </div>
-                <div class="formContHeader">
-                    <table style="width: 100%;">
-                        <tr>
-                            <td>
-                                <p class="direccion"><b>Tipo de Tarea<i class="icon-asterisk" style="color: #C70000;"></i></b></p>
-                            </td>
-                            <td>
-                                <p class="direccion"><b>No presencial</b></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:DropDownList ID="ddltipotarea" Style="min-width: 250px;" CssClass="txtfila2" runat="server"></asp:DropDownList>
-                            </td>
-                            <td>
-                                <asp:CheckBox ID="cknopresente" runat="server" />
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="formContBody">
-                    <table class="todotamano">
-                        <tr>
-                            <td>
-                                <p class="direccion" style="float: left;"><b>Descripcion</b></p>
-                                <asp:TextBox ID="txbdescriptarea" CssClass="descripcion2" runat="server" TextMode="MultiLine"></asp:TextBox>
-                                <asp:Label ID="Label8" CssClass="labelForm" runat="server" Visible="false"></asp:Label>
-                                <asp:Label ID="lblVdesc" CssClass="labelForm" runat="server" Visible="false"></asp:Label>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="formbotones">
-                    <asp:Label ID="lblguardarvalor" runat="server" Visible="false"></asp:Label>
-                    <asp:Button ID="btncancelar" runat="server" CssClass="btndefault " Text="Cancelar" Visible="false"/>
-                    <asp:Button ID="btneliminar" runat="server" CssClass="btndefault " Text="Eliminar" Visible="false"/>
-                    <asp:Button ID="btnmodificar" runat="server" CssClass="btndefault " Text="Modificar" Visible="false"/>
-                    <asp:Button ID="btnguardartarea" CssClass="btn derecha15" runat="server" />
-                </div>
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 50%;">
+                            <div class="formContHeader" style="width: 100%; float: left;">
+                                <table style="width: 100%;">
+
+                                    <tr>
+                                        <td>
+                                            <p class="direccion"><b>Tipo de Tarea<i class="icon-asterisk" style="color: #C70000;"></i></b></p>
+                                            <asp:DropDownList ID="ddltipotarea" Style="width: 95%;" CssClass="txtfila2" runat="server"></asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <asp:CheckBox ID="cknopresente" CssClass="chekc" runat="server" /><p class="direccion" style="float: left;"><b>No presencial</b></p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="formbotones">
+                                                <asp:Label ID="lblguardarvalor" runat="server" Visible="false"></asp:Label>
+                                                <asp:Button ID="btncancelar" runat="server" CssClass="btndefault " Text="Cancelar" Visible="false" />
+                                                <asp:Button ID="btneliminar" runat="server" CssClass="btndefault " Text="Eliminar" Visible="false" />
+                                                <asp:Button ID="btnmodificar" runat="server" CssClass="btndefault " Text="Modificar" Visible="false" />
+                                                <asp:Button ID="btnguardartarea" CssClass="btn derecha15" runat="server" />
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                        <td style="width: 50%;">
+                            <div class="formContBody" style="width: 100%; float: left;">
+                                <table class="todotamano">
+                                    <tr>
+                                        <td>
+                                            <p class="direccion" style="float: left;"><b>Descripcion</b></p>
+                                            <br>
+                                            <asp:TextBox ID="txbdescriptarea" CssClass="desc3" runat="server" TextMode="MultiLine"></asp:TextBox>
+                                            <asp:Label ID="Label8" CssClass="labelForm" runat="server" Visible="false"></asp:Label>
+                                            <asp:Label ID="lblVdesc" CssClass="labelForm" runat="server" Visible="false"></asp:Label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+
                 <div class="formContBody">
                     <asp:GridView ID="gvhistorialtarea" CssClass="tableform centrar hovert" runat="server">
                         <Columns>
@@ -223,13 +278,13 @@
             <asp:Panel ID="campo1" CssClass="centrar4 mitad" runat="server">
                 <asp:GridView ID="gvhistorial" CssClass="tableform centrar4" runat="server" Visible="false" AutoGenerateColumns="false">
                     <Columns>
-                        <asp:BoundField DataField="NoSolicitud" HeaderText="NoSolicitud"/>
-                        <asp:BoundField DataField="Categoria" HeaderText="Categoria"/>
-                        <asp:BoundField DataField="Tipo" HeaderText="Servicio"/>
-                        <asp:BoundField DataField="Estado" HeaderText="Estado"/>
-                        <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" ItemStyle-CssClass="ancho250"/>
-                        <asp:BoundField DataField="Fecha de Solicitud" HeaderText="Fecha de Solicitud"/>
-                        <asp:BoundField DataField="Solicitante" HeaderText="Solicitante"/>
+                        <asp:BoundField DataField="NoSolicitud" HeaderText="NoSolicitud" />
+                        <asp:BoundField DataField="Categoria" HeaderText="Categoria" />
+                        <asp:BoundField DataField="Tipo" HeaderText="Servicio" />
+                        <asp:BoundField DataField="Estado" HeaderText="Estado" />
+                        <asp:BoundField DataField="Descripcion" HeaderText="Descripcion" ItemStyle-CssClass="ancho250" />
+                        <asp:BoundField DataField="Fecha de Solicitud" HeaderText="Fecha de Solicitud" />
+                        <asp:BoundField DataField="Solicitante" HeaderText="Solicitante" />
                         <asp:TemplateField HeaderStyle-ForeColor="Black">
                             <ItemTemplate>
                                 <asp:Button ID="btnselec" CssClass="btndefault" runat="server" Text="Seleccionar" />
@@ -238,23 +293,28 @@
                     </Columns>
                 </asp:GridView>
             </asp:Panel>
-             <asp:Panel ID="pnlfiltros" CssClass="centrar4 mitad qborde" runat="server">
-                <table style="margin:0 auto;" class="tableform">
+            <asp:Panel ID="pnlfiltros" CssClass="centrar4 mitad qborde" runat="server">
+                <table style="margin: 0 auto;" class="tableform">
                     <tr>
                         <th>Categoria</th>
                         <th>Estado</th>
                         <th>UsuarioIT</th>
                         <th>Prioridad</th>
-                        <td rowspan="2"><asp:Button ID="btnBuscar" CssClass="btn" runat="server" Text="Buscar" /></td>
+                        <td rowspan="2">
+                            <asp:Button ID="btnBuscar" CssClass="btn" runat="server" Text="Buscar" /></td>
                     </tr>
                     <tr>
-                        <td><asp:DropDownList ID="ddlcategoriafil" runat="server" CssClass="ddlform"></asp:DropDownList></td>
-                        <td><asp:DropDownList ID="ddlestadofil" runat="server" CssClass="ddlform"></asp:DropDownList></td>
-                        <td><asp:DropDownList ID="ddlusuarioitfil" runat="server" CssClass="ddlform"></asp:DropDownList></td>
-                        <td><asp:DropDownList ID="ddlprioridadfil" runat="server" CssClass="ddlform"></asp:DropDownList></td>
+                        <td>
+                            <asp:DropDownList ID="ddlcategoriafil" runat="server" CssClass="ddlform"></asp:DropDownList></td>
+                        <td>
+                            <asp:DropDownList ID="ddlestadofil" runat="server" CssClass="ddlform"></asp:DropDownList></td>
+                        <td>
+                            <asp:DropDownList ID="ddlusuarioitfil" runat="server" CssClass="ddlform"></asp:DropDownList></td>
+                        <td>
+                            <asp:DropDownList ID="ddlprioridadfil" runat="server" CssClass="ddlform"></asp:DropDownList></td>
                     </tr>
                 </table>
-             </asp:Panel>
+            </asp:Panel>
             <asp:Panel ID="campo2" CssClass="centrar4 mitad button20" runat="server">
                 <asp:GridView ID="gvhistorialinac" CssClass="tableform centrar4 gray" runat="server" Visible="false">
                     <Columns>
@@ -274,9 +334,9 @@
             var historial2 = $('#MainContent_gvhistorialinac').width();
             var altura = $('#MainContent_gvhistorial').height();
             var alturamenu = $('#drop').height();
-           
 
-            $('#MainContent_campo1').css('max-height', alturamenu-50+'px')
+
+            $('#MainContent_campo1').css('max-height', alturamenu - 50 + 'px')
             if (historial1 > historial2 || historial2 == undefined) {
                 $('#MainContent_campo1').css('width', historial1)
                 $('#MainContent_campo2').css('width', historial1)
@@ -292,22 +352,22 @@
             $('.top23').css('width', ancho4)
             $(window).resize(function () {
                 var ancho2 = $(body).width();
-                var ancho4 = ancho2 - 245;
+                var ancho4 = ancho2 - 195;
                 $('.top23').css('width', ancho4)
                 var ancho2 = $('#drop').height();
                 var ancho = ancho2 - 80;
                 $('.top23').css('height', ancho)
                 var alturamenu = $('#drop').height();
                 $('#MainContent_campo1').css('max-height', alturamenu - 50 + 'px')
-            
+
                 var historial2 = $(".top23").width();
                 var altura = $('#MainContent_gvhistorial').height();
-                
-                
-                    $('#MainContent_campo1').css('width', historial2-80+'px')
-                    $('#MainContent_campo2').css('width', historial2-80+'px')
-               
-                
+
+
+                $('#MainContent_campo1').css('width', historial2 - 80 + 'px')
+                $('#MainContent_campo2').css('width', historial2 - 80 + 'px')
+
+
             });
         });
     </script>
