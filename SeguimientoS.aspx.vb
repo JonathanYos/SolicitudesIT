@@ -76,7 +76,7 @@ Partial Class SeguimientoS
         cn.llenarGrid(sql, gvhistorialtarea)
     End Sub
     Private Sub LLenarHistorialSolicitud()
-        sql = "SELECT S.NoSolicitud,  CAT.Categoria, CDT.Tipo, cdE.Estado,SUBSTRING(S.Descripcion,1,30)+'...' Descripcion,Convert(VARCHAR, S.FechaSolicitud, 105) + ' ' + CONVERT(VARCHAR, DATEDIFF(dd, FechaSolicitud, GETDATE()))+' dias' AS 'Fecha de Solicitud', S.Solicitante FROM Solicitud S LEFT JOIN CdPrioridad cdP ON S.Prioridad = cdP.IdPrioridad LEFT JOIN CdEstadoSol cdE ON S.Estado = cdE.IdEstado INNER JOIN CdCategoriaIT CAT ON S.Categoria=CAT.IdCategoria AND CAT.Activo=1 LEFT JOIN CdTipoSol CDT ON CDT.IdTipo= S.Tipo AND CDT.Activo=1  WHERE S.Activo = 1 AND UsuarioIT='" + U + "' AND S.Estado IN('SOLI','PROC') ORDER BY S.FechaSolicitud DESC,cdE.Estado ASC"
+        sql = "SELECT S.NoSolicitud,  CAT.Categoria, CDT.Tipo, cdE.Estado,SUBSTRING(S.Descripcion,1,30)+'...' Descripcion,Convert(VARCHAR, S.FechaSolicitud, 105) + ' ' + CONVERT(VARCHAR, DATEDIFF(dd, FechaSolicitud, GETDATE()))+' dias' AS 'Fecha de Solicitud', S.Solicitante FROM Solicitud S LEFT JOIN CdPrioridad cdP ON S.Prioridad = cdP.IdPrioridad LEFT JOIN CdEstadoSol cdE ON S.Estado = cdE.IdEstado INNER JOIN CdCategoriaIT CAT ON S.Categoria=CAT.IdCategoria AND CAT.Activo=1 LEFT JOIN CdTipoSol CDT ON CDT.IdTipo= S.Tipo AND CDT.Activo=1  WHERE S.Activo = 1 AND UsuarioIT='" + U + "' AND S.Estado IN('SOLI','PROC','SUSP') ORDER BY S.FechaSolicitud DESC,cdE.Estado ASC"
         cn.llenarGrid(sql, gvhistorial)
     End Sub
     Private Sub LLenarInfoSolicitud(valor As String)
@@ -139,7 +139,7 @@ Partial Class SeguimientoS
     Private Sub llenartareas(tipo As String)
         If (String.IsNullOrEmpty(tipo)) Then
         Else
-            sql = "SELECT IdTarea, Tipo FROM dbo.CdTipoTarea WHERE TipoSol='" + tipo + "' AND Activo=1"
+            sql = "SELECT IdTarea, Tipo FROM dbo.CdTipoTarea WHERE TipoSol='" + tipo + "' AND Activo=1 ORDER BY Tipo ASC"
             cn.llenarCombo(sql, ddltipotarea, "IdTarea", "Tipo")
         End If
     End Sub

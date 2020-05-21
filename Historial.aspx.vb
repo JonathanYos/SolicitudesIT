@@ -190,37 +190,45 @@ Partial Class Historial
             e.Row.Cells(9).Text = "Calificación"
         End If
 
+        Dim cuenta As String
+        cuenta = Session("M")
+        If (cuenta = "IT") Then
+            For Each dr As GridViewRow In gvhistorial.Rows
+                Dim btn As Button = dr.FindControl("btnCalificar")
+                Dim btn2 As Button = dr.FindControl("btnmodificar")
 
-
-        For Each dr As GridViewRow In gvhistorial.Rows
-
-            Dim me2 As String = dr.Cells(0).Text
-            Dim btn As Button = dr.FindControl("btnCalificar")
-            If VerificarCalificacion(me2) = 0 Then
                 btn.Visible = False
-            ElseIf VerificarCalificacion(me2) = 1 Then
-                btn.Visible = True
-            Else
-                btn.Visible = False
-            End If
-
-        Next
-        For Each dr As GridViewRow In gvhistorial.Rows
-
-            Dim me3 As String = dr.Cells(0).Text
-            Dim btn2 As Button = dr.FindControl("btnmodificar")
-
-            If VerificarModificacion(me3) = 0 Then
                 btn2.Visible = False
-            ElseIf VerificarModificacion(me3) = 1 Then
-                btn2.Visible = True
-            Else
-                btn2.Visible = False
-            End If
+            Next
+        Else
+            For Each dr As GridViewRow In gvhistorial.Rows
 
-        Next
+                Dim me2 As String = dr.Cells(0).Text
+                Dim btn As Button = dr.FindControl("btnCalificar")
+                If VerificarCalificacion(me2) = 0 Then
+                    btn.Visible = False
+                ElseIf VerificarCalificacion(me2) = 1 Then
+                    btn.Visible = True
+                Else
+                    btn.Visible = False
+                End If
 
-        
+            Next
+            For Each dr As GridViewRow In gvhistorial.Rows
+
+                Dim me3 As String = dr.Cells(0).Text
+                Dim btn2 As Button = dr.FindControl("btnmodificar")
+
+                If VerificarModificacion(me3) = 0 Then
+                    btn2.Visible = False
+                ElseIf VerificarModificacion(me3) = 1 Then
+                    btn2.Visible = True
+                Else
+                    btn2.Visible = False
+                End If
+
+            Next
+        End If
     End Sub
     Function VerificarModificacion(ByVal NoSolicitud As String) As Integer
         Dim resultado As Integer
