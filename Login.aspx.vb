@@ -12,11 +12,27 @@ Partial Class Login
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
         If (Page.IsPostBack) Then
         Else
-            Advertenciatb.Visible = False
-            Cambio_Contraseña.Visible = False
-            Formulario.Visible = True
-            txtuser.Focus()
+            If (String.IsNullOrEmpty(Session("U")) Or String.IsNullOrWhiteSpace(Session("U")) Or String.IsNullOrEmpty(Session("M")) Or String.IsNullOrWhiteSpace(Session("M"))) Then
+                Advertenciatb.Visible = False
+                Cambio_Contraseña.Visible = False
+                Formulario.Visible = True
+                txtuser.Focus()
+            Else
+                Dim var = Request.QueryString("v")
+                var = var + " "
+                If (var = " " And var.Contains("C") = False) Then
+                Else
+                    Dim pag() As String = var.Split("-")
+                    If (pag(0) = "C") Then
+                        Response.Redirect("Calificacion.aspx?d=" + pag(1).ToString() + "")
+                    End If
+                End If
+            End If
+
         End If
+
+
+
 
     End Sub
     Protected Sub Ingresar_Click(sender As Object, e As EventArgs) Handles Ingresar.Click
@@ -147,18 +163,41 @@ Partial Class Login
         '    Session("U") = usu
         '    numero = 0
         'Else
-        Dim cuenta As String
-        If (res = 1) Then
-            Session("U") = usu
-            cuenta = "IT"
-            Session("M") = cuenta
-            Response.Redirect("SeguimientoS.aspx")
+
+        Dim var = Request.QueryString("v")
+        var = var + " "
+        If (var = " " And var.Contains("C") = False) Then
+            Dim cuenta As String
+            If (res = 1) Then
+                Session("U") = usu
+                cuenta = "IT"
+                Session("M") = cuenta
+                Response.Redirect("SeguimientoS.aspx")
+            Else
+                cuenta = "NORM"
+                Session("U") = usu
+                Session("M") = cuenta
+                Response.Redirect("Historial.aspx?v=2")
+            End If
         Else
-            cuenta = "NORM"
-            Session("U") = usu
-            Session("M") = cuenta
-            Response.Redirect("Historial.aspx?v=2")
+            Dim pag() As String = var.Split("-")
+            If (pag(0) = "C") Then
+                Dim cuenta As String
+                If (res = 1) Then
+                    Session("U") = usu
+                    cuenta = "IT"
+                    Session("M") = cuenta
+                Else
+                    cuenta = "NORM"
+                    Session("U") = usu
+                    Session("M") = cuenta
+                End If
+                'Response.Redirect("Calificacion.aspx?v=2#no-back-button")
+                Response.Redirect("Calificacion.aspx?d=" + pag(1).ToString() + "")
+            End If
         End If
+
+
 
         'End If
     End Sub

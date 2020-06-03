@@ -26,10 +26,26 @@ Partial Class Calificacion
                 pnlWarning.Visible = False
                 pnlhistorial.Visible = True
             Else
-                Response.Redirect("Historial.aspx?v=2")
+                Dim rr = Request.QueryString("d")
+                If (String.IsNullOrWhiteSpace(rr) And String.IsNullOrEmpty(rr)) Then
+                    Response.Redirect("Historial.aspx?v=2")
+                Else
+                    rr = rr.Replace(" ", "")
+                    sql = "SELECT NoSolicitud,Solicitante FROM dbo.SOLICITUD WHERE NoSolicitud='" + rr + "' AND Activo=1"
+                    Dim Historial As DataTable
+                    cn.llenarDataTable(sql, Historial)
+                    Dim rrow As DataRow = Historial.Rows(0)
+                    If (rrow(1).ToString() = U) Then
+                        cn.llenarDataTable(sql, Historial)
+                        llenarinformacion(rr)
+                        btnaceptar.Text = "Aceptar"
+                    Else
+                        btnOk.Text = "Ok"
+                        Mostrarmsj("El usuario no corresponde con la solicitud")
+                    End If
+                End If
             End If
         End If
-
     End Sub
     Private Sub VerificarRegistrosHistorial()
         Dim conteoHistorial As String = gvhistorial.Rows.Count.ToString()

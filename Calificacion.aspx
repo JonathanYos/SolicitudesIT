@@ -67,8 +67,8 @@
                 <asp:Button ID="btnOk" class="btn" runat="server" Text="OK" />
             </div>
         </asp:Panel>
-         <asp:Panel runat="server" class="formCont2 warnFrm2 centrar4" ID="pnlhistorial" Visible="true">
-            <asp:Label ID="lblavisono" runat="server" CssClass="labelFormTitle"></asp:Label> 
+         <asp:Panel runat="server" Style="max-height:600px; overflow-y:auto;" class="formCont2 warnFrm2 centrar4" ID="pnlhistorial" Visible="true">
+            <asp:Label ID="lblavisono"  runat="server" CssClass="labelFormTitle"></asp:Label> 
              <asp:GridView CssClass="tableform centrar4" ID="gvhistorial" runat="server">
                  <Columns>
                 <asp:TemplateField HeaderStyle-ForeColor="Black">

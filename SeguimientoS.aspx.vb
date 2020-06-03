@@ -352,8 +352,14 @@ Partial Class SeguimientoS
             Dim solic = lblsolicitante.Text
             sql = "SELECT Email FROM dbo.FwEmployee WHERE EmployeeId='" + solic + "'"
             Dim solicitante = cn.obtienePalabraFam(sql, "Email")
+            Dim link As String = "http://guate.commonhope.org:82/SolicitudesIT/Login.aspx?v=C-" + lblticket.Text + "#no-back-button"
+            Dim link2 As String = "http://localhost:55608/Login.aspx?v=C-" + lblticket.Text + "#no-back-button"
             Dim mensaje = "<h1>!Su solicitud ha sido completada¡</h1><br/>" +
-                        "<p>Su ticket #" + lblticket.Text + " ha sido completado por favor califique nuestro servicio</p>"
+                        "<p>Su ticket #" + lblticket.Text + " ha sido completado por favor califique nuestro servicio</p>" +
+                        "<br>" +
+                        " <a style = 'color:#fff; text-decoration:none;background-color: #28a745; border: #28a745; padding: 6px 12px; border-radius: 5px;' href='" + link + "'>" +
+                        "Clic aqui para calificar" +
+                        "</a>"
             Dim Asunto As String = "Ticket #" + lblticket.Text + " -Resuelto-"
             enviar(solicitante, mensaje, Asunto)
         End If
